@@ -87,8 +87,8 @@ export default function Header(){
             {
                 isMobileWidthSize  &&
                     <div className={`menuItems`} ref={menuRef}>
-                        <button>Returns & Orders</button>
-                        <button>Cart (<span>5</span>)</button>
+                        <NavLink to="/return_orders"><button>Returns & Orders</button></NavLink>
+                        <NavLink to="/checkout"><button>Cart (<span>5</span>)</button></NavLink>
                     </div>
             }
 

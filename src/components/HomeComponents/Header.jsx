@@ -39,7 +39,7 @@ export default function Header(){
     }
 
     return(
-        <header>
+        <header className='amazonHeader'>
             <NavLink to="/">
                 <div className="amazon-logo">
                     <img 

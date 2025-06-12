@@ -12,7 +12,7 @@ a{
     color: white;
 }
 
-header{
+.amazonHeader{
     position: fixed;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@ header{
     height: 40px;
     z-index: 999;
 }
-header a .amazon-logo{
+.amazonHeader a .amazon-logo{
     border: 1px solid transparent;
     padding: 5px 8px;
     cursor: pointer;
@@ -33,29 +33,29 @@ header a .amazon-logo{
     display: flex;
     align-items: center;
 }
-header a .amazon-logo .windowLogo{
+.amazonHeader a .amazon-logo .windowLogo{
     width: 85px;
 }
-header a .amazon-logo .phoneLogo{
+.amazonHeader a .amazon-logo .phoneLogo{
     width: 30px;
 }
-header a .amazon-logo:hover{
+.amazonHeader a .amazon-logo:hover{
     border: 1px solid white;
 }
 
-header .search-input{
+.amazonHeader .search-input{
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-header .search-input:focus-within input{
+.amazonHeader .search-input:focus-within input{
     outline: 2px solid rgb(252, 178, 82);
 }
-header .search-input:focus-within img{
+.amazonHeader .search-input:focus-within img{
     outline: 2px solid rgb(252, 178, 82);
 }
-header .search-input input{
+.amazonHeader .search-input input{
     padding: 12px;
     width: 100%;
     max-width: 800px;
@@ -63,19 +63,19 @@ header .search-input input{
     border: none;
     border-radius: 5px;
 }
-header .search-input img{
+.amazonHeader .search-input img{
     width: 20px;
     background-color: rgb(254,189,105);
     border-radius: 0px 5px 5px 0px;
     padding: 10px;
     margin-left: -5px;
 }
-header .burgerMenu{
+.amazonHeader .burgerMenu{
     margin-left: 20px;
     cursor: pointer;
     padding: 5px;
 }
-header .return_orders-cart{
+.amazonHeader .return_orders-cart{
     display: flex;
     justify-content: end;
     align-items: center;
@@ -84,7 +84,7 @@ header .return_orders-cart{
     min-width: 200px;
     height: 100%;
 }
-header .return_orders-cart .return-orders-container .return-orders{
+.amazonHeader .return_orders-cart .return-orders-container .return-orders{
     display: flex;   
     flex-direction: column;
     justify-content: center;
@@ -93,31 +93,31 @@ header .return_orders-cart .return-orders-container .return-orders{
     height: 90%;
     padding: 5px 8px;
 }
-header .return_orders-cart .return-orders-container .return-orders span{
+.amazonHeader .return_orders-cart .return-orders-container .return-orders span{
     font-weight: bold;
 }
-header .return_orders-cart .cart-container .cart{
+.amazonHeader .return_orders-cart .cart-container .cart{
     display: flex;
     align-items: end;
     border: 1px solid transparent;
     height: 90%;
     padding: 5px 8px;
 }
-header .return_orders-cart .return-orders-container .return-orders:hover{
+.amazonHeader .return_orders-cart .return-orders-container .return-orders:hover{
     cursor: pointer;
     border: 1px solid white;
 }
-header .return_orders-cart .cart-container .cart:hover{
+.amazonHeader .return_orders-cart .cart-container .cart:hover{
     cursor: pointer;
     border: 1px solid white;
 }
-header .return_orders-cart .cart-container .cart div{
+.amazonHeader .return_orders-cart .cart-container .cart div{
     position: relative;
 }
-header .return_orders-cart .cart-container .cart div img{
+.amazonHeader .return_orders-cart .cart-container .cart div img{
     width: 50px;
 }
-header .return_orders-cart .cart-container .cart div span{
+.amazonHeader .return_orders-cart .cart-container .cart div span{
     position: absolute;
     left: 57%;
     top: 3%;
@@ -164,10 +164,10 @@ header .return_orders-cart .cart-container .cart div span{
 }
 
 @media(max-width: 780px){
-    header a .amazon-logo{
+    .amazonHeader a .amazon-logo{
         margin-right: 10px;
     }
-    header .return_orders-cart{
+    .amazonHeader .return_orders-cart{
         min-width: fit-content;
         padding-left: 20px;
     }
@@ -285,4 +285,35 @@ header .return_orders-cart .cart-container .cart div span{
     .products-container{
         grid-template-columns: 1fr 1fr
     }
+}
+
+
+/* checkOut  */
+
+.checkOutHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0px auto;
+    background-color: antiquewhite;
+}
+.checkOutHeader img:nth-of-type(1){
+    width: 100px;
+    margin-left: 20px;
+}
+.checkOutHeader div{ 
+    text-align: center;
+    flex: 1;
+    font-size: 24px;
+    font-weight: 500;
+}
+.checkOutHeader div p span {
+    color: rgb(1,112,133);
+}
+.checkOutHeader img:nth-of-type(2){
+
+    margin-right: 20px;
 }

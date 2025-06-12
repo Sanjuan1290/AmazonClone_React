@@ -2,6 +2,7 @@ import searchIcon from '../assets/icons/search-icon.png'
 import cartIcon from '../assets/icons/cart-icon.png'
 import hamburgerMenuIcon from '../assets/icons/hamburger-menu.png'
 import { useEffect, useState, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Header(){
 
@@ -39,14 +40,16 @@ export default function Header(){
 
     return(
         <header>
-            <div className="amazon-logo">
-                <img 
-                    src={isMobileWidthSize ? 
-                        "/logos/amazon-mobile-logo-white.png":
-                        "/logos/amazon-logo-white.png" }
-                    className={isMobileWidthSize ? 'phoneLogo' : 'windowLogo'}
-                    alt="amazon logo" />
-            </div>
+            <NavLink to="/">
+                <div className="amazon-logo">
+                    <img 
+                        src={isMobileWidthSize ? 
+                            "/logos/amazon-mobile-logo-white.png":
+                            "/logos/amazon-logo-white.png" }
+                        className={isMobileWidthSize ? 'phoneLogo' : 'windowLogo'}
+                        alt="amazon logo" />
+                </div>
+            </NavLink>
 
             <div className="search-input">
                 <input type="text" placeholder="Search" />
@@ -54,7 +57,12 @@ export default function Header(){
             </div>
 
             {
-                isMobileWidthSize ? <img onClick={handleBurgerMenuClick} className='burgerMenu' src={hamburgerMenuIcon} alt="menu icon"/> :
+                isMobileWidthSize ? 
+                    <img onClick={handleBurgerMenuClick} 
+                        className='burgerMenu' 
+                        src={hamburgerMenuIcon} alt="menu icon"/> 
+                        
+                        :
 
                 <div className="return_orders-cart">
                     <div className='return-orders'>

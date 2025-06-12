@@ -16,21 +16,28 @@ header{
     padding: 10px 20px;
     left: 0;
     right: 0;
+    height: 40px;
+    z-index: 999;
 }
-header .amazon-logo{
-    min-width: 200px;
-}
-header .amazon-logo .windowLogo{
-    width: 90px;
+header a .amazon-logo{
+    border: 1px solid transparent;
+    padding: 5px 8px;
     cursor: pointer;
+    margin-right: 100px;
+    height: 90%;
+    display: flex;
+    align-items: center;
 }
-header .amazon-logo .phoneLogo{
+header a .amazon-logo .windowLogo{
+    width: 85px;
+}
+header a .amazon-logo .phoneLogo{
     width: 30px;
-    cursor: pointer;
 }
-header .amazon-logo{
-    min-width: 200px;
+header a .amazon-logo:hover{
+    border: 1px solid white;
 }
+
 header .search-input{
     flex: 1;
     display: flex;
@@ -61,6 +68,7 @@ header .search-input img{
 header .burgerMenu{
     margin-left: 20px;
     cursor: pointer;
+    padding: 5px;
 }
 header .return_orders-cart{
     display: flex;
@@ -68,13 +76,17 @@ header .return_orders-cart{
     align-items: center;
     color: white;
     font-size: 12px;
-    gap: 20px;
     min-width: 200px;
+    height: 100%;
 }
 header .return_orders-cart .return-orders{
     display: flex;   
     flex-direction: column;
+    justify-content: center;
     line-height: 1;
+    border: 1px solid transparent;
+    height: 90%;
+    padding: 5px 8px;
 }
 header .return_orders-cart .return-orders span{
     font-weight: bold;
@@ -82,6 +94,17 @@ header .return_orders-cart .return-orders span{
 header .return_orders-cart .cart{
     display: flex;
     align-items: end;
+    border: 1px solid transparent;
+    height: 90%;
+    padding: 5px 8px;
+}
+header .return_orders-cart .return-orders:hover{
+    cursor: pointer;
+    border: 1px solid white;
+}
+header .return_orders-cart .cart:hover{
+    cursor: pointer;
+    border: 1px solid white;
 }
 header .return_orders-cart .cart div{
     position: relative;
@@ -104,14 +127,14 @@ header .return_orders-cart .cart div span{
     flex-direction: column;
     background-color: rgb(18,24,33);
     left: 50%;
-    bottom: 0px;
+    bottom: 100px;
     width: 100%;
     transform: translateX(-50%);
     padding: 10px 0px;
     gap: 5px;
     opacity: 0;
     transition: bottom .3s  ease, opacity .3s ease;
-    z-index: -1;
+    z-index: -3;
 }
 .menuItemTransition{
     bottom: -100px;
@@ -136,9 +159,8 @@ header .return_orders-cart .cart div span{
 }
 
 @media(max-width: 780px){
-    header .amazon-logo{
-        min-width: fit-content;
-        padding-right: 20px;
+    header a .amazon-logo{
+        margin-right: 10px;
     }
     header .return_orders-cart{
         min-width: fit-content;

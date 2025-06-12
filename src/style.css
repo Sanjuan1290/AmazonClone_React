@@ -4,19 +4,32 @@
     margin: 0;
     font-family: Roboto, sans-serif;
 }
+body{
+    height: 2000px;
+}
 
 header{
+    position: fixed;
     display: flex;
     align-items: center;
     background-color: rgb(18,25,32);
     padding: 10px 20px;
+    left: 0;
+    right: 0;
 }
 header .amazon-logo{
     min-width: 200px;
 }
-header .amazon-logo img{
+header .amazon-logo .windowLogo{
     width: 90px;
     cursor: pointer;
+}
+header .amazon-logo .phoneLogo{
+    width: 30px;
+    cursor: pointer;
+}
+header .amazon-logo{
+    min-width: 200px;
 }
 header .search-input{
     flex: 1;
@@ -45,7 +58,10 @@ header .search-input img{
     padding: 10px;
     margin-left: -5px;
 }
-
+header .burgerMenu{
+    margin-left: 20px;
+    cursor: pointer;
+}
 header .return_orders-cart{
     display: flex;
     justify-content: end;
@@ -79,6 +95,43 @@ header .return_orders-cart .cart div span{
     top: 3%;
     transform: translateX(-50%);
     font-size: 14px;
+    color: rgb(255,133,24);
+}
+
+.menuItems{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(18,24,33);
+    left: 50%;
+    bottom: 0px;
+    width: 100%;
+    transform: translateX(-50%);
+    padding: 10px 0px;
+    gap: 5px;
+    opacity: 0;
+    transition: bottom .3s  ease, opacity .3s ease;
+    z-index: -1;
+}
+.menuItemTransition{
+    bottom: -100px;
+    opacity: 1;
+}
+
+
+.menuItems button{
+    background-color: transparent;
+    color: white;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+.menuItems button:hover{
+    background-color: rgba(255, 255, 255, 0.049);
+}
+.menuItems button:nth-of-type(2) span{
     color: rgb(255,133,24);
 }
 

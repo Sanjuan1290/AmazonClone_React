@@ -1,19 +1,41 @@
 import searchIcon from '../assets/icons/search-icon.png'
 import cartIcon from '../assets/icons/cart-icon.png'
-import { useEffect, useState } from 'react'
+import hamburgerMenuIcon from '../assets/icons/hamburger-menu.png'
+import { useEffect, useState, useRef } from 'react'
 
 export default function Header(){
 
-    const [isMobileWidthSize, setIsMobileWidthSize] = useState(window.innerWidth === 620)
+    const [isMobileWidthSize, setIsMobileWidthSize] = useState(window.innerWidth <= 620)
+    const [showMenu, setShowMenu] = useState(false)
+    const menuRef = useRef()
 
     useEffect(()=>{
-        const isMobile = window.innerWidth === 620;
-        window.addEventListener('resize', ()=> {
+        const handleSize = ()=>{
+            const isMobile = window.innerWidth <= 620;
             setIsMobileWidthSize(prev => (prev === isMobile ? prev : isMobile))
-        })
+        }
+        window.addEventListener('resize', handleSize)
+
+        return ()=> window.removeEventListener('resize', handleSize)
+    }, [])
+
+    useEffect(() => {
+        if(!isMobileWidthSize) setShowMenu(false)
     }, [isMobileWidthSize])
 
-    console.log(isMobileWidthSize);
+    useEffect(()=>{
+        if(menuRef.current){
+            if(showMenu){
+                menuRef.current.classList.add('menuItemTransition')
+            }else{
+                menuRef.current.classList.remove('menuItemTransition')
+            }
+        }
+    }, [showMenu])
+
+    function handleBurgerMenuClick(){
+        setShowMenu(prev => !prev)
+    }
 
     return(
         <header>
@@ -22,6 +44,7 @@ export default function Header(){
                     src={isMobileWidthSize ? 
                         "/logos/amazon-mobile-logo-white.png":
                         "/logos/amazon-logo-white.png" }
+                    className={isMobileWidthSize ? 'phoneLogo' : 'windowLogo'}
                     alt="amazon logo" />
             </div>
 
@@ -30,21 +53,32 @@ export default function Header(){
                 <img src={searchIcon} alt="search icon" />
             </div>
 
-            <div className="return_orders-cart">
-                <div className='return-orders'>
-                    Returns <span>& Orders</span>
-                </div>
+            {
+                isMobileWidthSize ? <img onClick={handleBurgerMenuClick} className='burgerMenu' src={hamburgerMenuIcon} alt="menu icon"/> :
 
-                <div className='cart'>
-                    <div>
-                        <img src={cartIcon} alt="cart icon" />
-                        <span>4</span>
+                <div className="return_orders-cart">
+                    <div className='return-orders'>
+                        Returns <span>& Orders</span>
                     </div>
 
-                    <p>Cart</p>
-                </div>
+                    <div className='cart'>
+                        <div>
+                            <img src={cartIcon} alt="cart icon" />
+                            <span>4</span>
+                        </div>
 
-            </div>
+                        <p>Cart</p>
+                    </div>
+                </div>
+            }
+            {
+                isMobileWidthSize  &&
+                    <div className={`menuItems`} ref={menuRef}>
+                        <button>Returns & Orders</button>
+                        <button>Cart (<span>5</span>)</button>
+                    </div>
+            }
+
         </header>
     )
 }

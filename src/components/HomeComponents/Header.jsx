@@ -1,6 +1,6 @@
-import searchIcon from '../assets/icons/search-icon.png'
-import cartIcon from '../assets/icons/cart-icon.png'
-import hamburgerMenuIcon from '../assets/icons/hamburger-menu.png'
+import searchIcon from '../../assets/icons/search-icon.png'
+import cartIcon from '../../assets/icons/cart-icon.png'
+import hamburgerMenuIcon from '../../assets/icons/hamburger-menu.png'
 import { useEffect, useState, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 
@@ -65,18 +65,23 @@ export default function Header(){
                         :
 
                 <div className="return_orders-cart">
-                    <div className='return-orders'>
-                        Returns <span>& Orders</span>
-                    </div>
 
-                    <div className='cart'>
-                        <div>
-                            <img src={cartIcon} alt="cart icon" />
-                            <span>4</span>
+                    <NavLink to="/return_orders" className='return-orders-container'>
+                        <div className='return-orders'>
+                            Returns <span>& Orders</span>
                         </div>
+                    </NavLink>
 
-                        <p>Cart</p>
-                    </div>
+                    <NavLink to="/checkout" className='cart-container'>
+                        <div className='cart'>
+                            <div>
+                                <img src={cartIcon} alt="cart icon" />
+                                <span>4</span>
+                            </div>
+
+                            <p>Cart</p>
+                        </div>
+                    </NavLink>
                 </div>
             }
             {

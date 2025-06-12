@@ -7,6 +7,10 @@
 body{
     height: 2000px;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 
 header{
     position: fixed;
@@ -80,7 +84,7 @@ header .return_orders-cart{
     min-width: 200px;
     height: 100%;
 }
-header .return_orders-cart .return-orders{
+header .return_orders-cart .return-orders-container .return-orders{
     display: flex;   
     flex-direction: column;
     justify-content: center;
@@ -89,31 +93,31 @@ header .return_orders-cart .return-orders{
     height: 90%;
     padding: 5px 8px;
 }
-header .return_orders-cart .return-orders span{
+header .return_orders-cart .return-orders-container .return-orders span{
     font-weight: bold;
 }
-header .return_orders-cart .cart{
+header .return_orders-cart .cart-container .cart{
     display: flex;
     align-items: end;
     border: 1px solid transparent;
     height: 90%;
     padding: 5px 8px;
 }
-header .return_orders-cart .return-orders:hover{
+header .return_orders-cart .return-orders-container .return-orders:hover{
     cursor: pointer;
     border: 1px solid white;
 }
-header .return_orders-cart .cart:hover{
+header .return_orders-cart .cart-container .cart:hover{
     cursor: pointer;
     border: 1px solid white;
 }
-header .return_orders-cart .cart div{
+header .return_orders-cart .cart-container .cart div{
     position: relative;
 }
-header .return_orders-cart .cart div img{
+header .return_orders-cart .cart-container .cart div img{
     width: 50px;
 }
-header .return_orders-cart .cart div span{
+header .return_orders-cart .cart-container .cart div span{
     position: absolute;
     left: 57%;
     top: 3%;

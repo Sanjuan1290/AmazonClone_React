@@ -1,0 +1,94 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    background-color: rgb(18,25,32);
+    padding: 10px 20px;
+}
+header .amazon-logo{
+    min-width: 200px;
+}
+header .amazon-logo img{
+    width: 90px;
+    cursor: pointer;
+}
+header .search-input{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header .search-input:focus-within input{
+    outline: 2px solid rgb(252, 178, 82);
+}
+header .search-input:focus-within img{
+    outline: 2px solid rgb(252, 178, 82);
+}
+header .search-input input{
+    padding: 12px;
+    width: 100%;
+    max-width: 800px;
+    min-width: 250px;
+    border: none;
+    border-radius: 5px;
+}
+header .search-input img{
+    width: 20px;
+    background-color: rgb(254,189,105);
+    border-radius: 0px 5px 5px 0px;
+    padding: 10px;
+    margin-left: -5px;
+}
+
+header .return_orders-cart{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    gap: 20px;
+    min-width: 200px;
+}
+header .return_orders-cart .return-orders{
+    display: flex;   
+    flex-direction: column;
+    line-height: 1;
+}
+header .return_orders-cart .return-orders span{
+    font-weight: bold;
+}
+header .return_orders-cart .cart{
+    display: flex;
+    align-items: end;
+}
+header .return_orders-cart .cart div{
+    position: relative;
+}
+header .return_orders-cart .cart div img{
+    width: 50px;
+}
+header .return_orders-cart .cart div span{
+    position: absolute;
+    left: 57%;
+    top: 3%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: rgb(255,133,24);
+}
+
+@media(max-width: 780px){
+    header .amazon-logo{
+        min-width: fit-content;
+        padding-right: 20px;
+    }
+    header .return_orders-cart{
+        min-width: fit-content;
+        padding-left: 20px;
+    }
+}

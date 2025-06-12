@@ -1,10 +1,13 @@
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
-import Header from './components/Header'
+import HomeLayout from './pages/HomeLayout'
 
 export default function App(){
 
     const router = createBrowserRouter(createRoutesFromElements(
-        <Route path="/" element={<Header />}/>
+        <Route path="/" element={<HomeLayout />}>
+            
+        </Route>
+
     ))
 
     return(

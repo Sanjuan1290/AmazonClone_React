@@ -1,15 +1,27 @@
 import { fetchProducts } from '../../api'
 import { convertFromPriceCents } from '../../utils'
 import { useLoaderData, defer, Await } from 'react-router-dom'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
+import checkIcon from '../../assets/icons/checkmark.png'
 
 export function loader(){
     return defer({products: fetchProducts()})
 }
 
 export default function Products(){
-
+    const [activeEffects, setActiveEffects] = useState([])
     const { products } = useLoaderData()
+
+    function handleAddToCartEvent(productId){
+        setActiveEffects(prev => [...prev, productId])
+
+        const setTimer = setTimeout(() => {
+            setActiveEffects(prev => prev.filter(id => id !== productId))
+        }, 1500)
+
+    }
+
+    console.log(activeEffects);
 
 
     return(
@@ -44,8 +56,15 @@ export default function Products(){
                                 <option value="10">10</option>
                             </select>
                         </div>
-
-                        <button className='addToCart'>Add to cart</button>
+                        
+                        {activeEffects.includes(product.id) && (
+                            <div className="addEffect">
+                                <img src={checkIcon} alt="added to cart" />
+                                <p>Added</p>
+                            </div>
+                        )}
+                        
+                        <button onClick={()=>{handleAddToCartEvent(product.id)}} className='addToCart'>Add to cart</button>
                     </div>
                     ))
                 )}

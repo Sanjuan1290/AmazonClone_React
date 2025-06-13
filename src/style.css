@@ -290,6 +290,19 @@ a{
 
 
 /* checkOut  */
+.checkout-orderReview-container{
+    display: flex;
+    padding: 20px;
+    max-width: calc(1100px - 40px);
+    margin: 60px auto;
+    gap: 15px;
+}
+.review-order-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 .checkOutHeader{
     display: flex;
@@ -301,13 +314,16 @@ a{
     margin: 0px auto;
     background-color: antiquewhite;
 }
-.checkOutHeader img:nth-of-type(1).window{
+.checkOutHeader > a > img:nth-of-type(1).window{
     width: 100px;
     margin-left: 20px;
 }
-.checkOutHeader img:nth-of-type(1).mobile{
-    width: 40px;
+.checkOutHeader > a > img:nth-of-type(1).mobile{
+    width: 30px;
     margin-left: 20px;
+}
+.checkOutHeader > .lockIcon{
+    margin-right: 20px;
 }
 
 .checkOutHeader div{ 
@@ -324,8 +340,138 @@ a{
     margin-right: 20px;
 }
 
-@media(max-width: 950px){
+@media(max-width: 1030px){
     .checkOutHeader div{
         font-size: 18px;
     }
+}
+
+
+
+/* REVIEW ORDER */
+
+.order-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(128, 128, 128, 0.36);
+    padding: 15px;
+    gap: 15px;
+    min-width: fit-content;
+    max-width: 670px;
+}
+.order-container .delivery-date{
+    color: rgb(0,119,40) ;  
+    font-size: 18px; 
+}
+
+.order-container .orderDetails-deliveryOptions{
+    display: flex;
+    gap: 15px;
+}
+
+.orderDetails{
+    display: flex;
+    align-items: start;
+    gap: 15px;
+    max-width: 400px;
+}
+.orderDetails > img{
+    width: 100px;
+    object-fit: contain;
+}
+.orderDetails > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.orderDetails > div > .price{
+    color: rgb(179, 4, 4);
+}
+.orderDetails > div > .quantity{
+    display: flex;
+    gap: 5px;
+    width: 200px;
+    background-color: rgb(46, 89, 128);  
+}
+.orderDetails > div > .quantity > button{
+    background-color: transparent;
+    border: none;
+    color: rgb(0,125,182);
+    font-size: 16px;
+    cursor: pointer;
+}
+.orderDetails > div > .quantity > button:hover{
+    text-decoration: underline;
+}
+.deliveryOptions{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: fit-content;
+    margin-bottom: 20px;
+}
+.deliveryOptions > div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.deliveryOptions > div > label{
+    display: flex;
+    line-height: .95;
+    gap: 8px;
+}
+.deliveryOptions > div > label> input{
+    width: 16px;
+}
+.deliveryOptions > div > label > div > p{
+    font-weight: bold;
+    color: rgb(1,119,0);
+}
+.deliveryOptions > div > label > div > span{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.orderSummary-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    min-width: calc(360px - 40px);
+    padding: 20px;
+    margin-top: 50px;
+    gap: 5px;
+}
+.orderSummary-container .line-1{
+    height: .5px;
+    width: 60px;
+    background-color: rgba(128, 128, 128, 0.665);
+    position: absolute;
+    right: 20px;
+    top: 34%;
+    transform: translateY(50%);
+}
+.orderSummary-container .line-2{
+    height: .5px;
+    background-color: rgba(128, 128, 128, 0.665);
+    margin: 5px 0px 10px 0px;
+}
+.orderSummary-container .price{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+.orderSummary-container > .tax{
+    margin-top: 10px;
+}
+.orderSummary-container > .items{
+    color: rgb(168, 14, 14);
+    font-weight: bold;
+}
+.orderSummary-container > button{
+    background-color: rgb(254,217,20);
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: 30px;
 }

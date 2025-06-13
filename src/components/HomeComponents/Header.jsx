@@ -4,8 +4,7 @@ import hamburgerMenuIcon from '../../assets/icons/hamburger-menu.png'
 import { useEffect, useState, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Header(){
-
+export default function Header(props){
     const [isMobileWidthSize, setIsMobileWidthSize] = useState(window.innerWidth <= 620)
     const [showMenu, setShowMenu] = useState(false)
     const menuRef = useRef()
@@ -76,7 +75,7 @@ export default function Header(){
                         <div className='cart'>
                             <div>
                                 <img src={cartIcon} alt="cart icon" />
-                                <span>4</span>
+                                <span>{props.cartQuantity}</span>
                             </div>
 
                             <p>Cart</p>
@@ -88,7 +87,7 @@ export default function Header(){
                 isMobileWidthSize  &&
                     <div className={`menuItems`} ref={menuRef}>
                         <NavLink to="/return_orders"><button>Returns & Orders</button></NavLink>
-                        <NavLink to="/checkout"><button>Cart (<span>5</span>)</button></NavLink>
+                        <NavLink to="/checkout"><button>Cart (<span>{props.cartQuantity}</span>)</button></NavLink>
                     </div>
             }
 

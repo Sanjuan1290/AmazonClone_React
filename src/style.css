@@ -478,13 +478,28 @@ a{
     .checkout-orderReview-container{
         flex-direction: column;
         align-items: center;
+        padding: 40px;
+        margin: 10px auto;
+        background-color: antiquewhite;
     }
     .orderSummary-container{
         order: -1;
-        width: calc(500px - 40px);
+        width: 100%;
+        min-width: 400px;
+        max-width: 500px;
+    }
+
+    .review-order-container{
+        width: 100%;
+        background-color: aquamarine;
+        min-width: 440px;
+        max-width: 540px;
+    }
+    .order-container{
+        background-color: rgb(195, 127, 39);
+        width: calc(100% - 30px);
     }
     .order-container .orderDetails-deliveryOptions{
         flex-direction: column;
-        width: calc(500px - 30px);
     }
 }

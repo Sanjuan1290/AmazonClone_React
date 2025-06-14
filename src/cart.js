@@ -4,7 +4,7 @@ export let cart = JSON.parse(localStorage.getItem('cart')) || []
 export function addToCart(productId, quantity){
     const existingProduct = cart.find(item => item.productId === productId)
 
-    existingProduct ? existingProduct.quantity += quantity : cart.push({ productId, quantity })
+    existingProduct ? existingProduct.quantity += quantity : cart.push({ productId, quantity, deliveryOption: '1' })
 
     saveCart()
 }
@@ -35,5 +35,10 @@ export function updateItemQuantity(productId, newQuantity){
 
 export function removeItem(productId){
     cart = cart.filter(item => item.productId !== productId)
+    saveCart()
+}
+
+export function updateDeliveryOption(productId, deliveryId){
+    cart = cart.map(item => item.productId === productId ? {...item, deliveryOption: deliveryId} : item)
     saveCart()
 }

@@ -27,7 +27,7 @@ export default function ReviewYourOrderLayout({ products, setHeaderQuantity }){
                 }
             </div>
 
-            <OrderSummary />
+            <OrderSummary cartItem={cartItem}/>
         </main>
     )
 }

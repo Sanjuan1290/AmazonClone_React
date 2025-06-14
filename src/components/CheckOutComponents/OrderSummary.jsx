@@ -1,5 +1,10 @@
+import { NavLink } from "react-router-dom"
+import { getOrderSummary } from "../../cart"
+import { convertFromPriceCents } from "../../utils"
 
-export default function OrderSummary(){
+export default function OrderSummary({cartItem}){
+
+    const orderSummary = getOrderSummary(cartItem) 
 
     return(
         <section className="orderSummary-container">
@@ -7,31 +12,33 @@ export default function OrderSummary(){
 
             <div className="price">
                 <p>Items (3):</p>
-                <p>$39.84</p>
+                <p>${convertFromPriceCents(orderSummary.itemTotalPrice)}</p>
             </div>
             <div className="price">
                 <p>Shipping & handling:</p>
-                <p>$4.99</p>
+                <p>${convertFromPriceCents(orderSummary.totalShippingPrice)}</p>
             </div>
 
             <div className="line-1"></div>
 
             <div className="price tax">
                 <p>Total before tax:</p>
-                <p>$44:83</p>
+                <p>${convertFromPriceCents(orderSummary.totalPriceBeforeTax)}</p>
             </div>
             <div className="price">
                 <p>Estimated tax (10%):</p>
-                <p>$4.48</p>
+                <p>${convertFromPriceCents(orderSummary.taxPrice)}</p>
             </div>
 
             <div className="line-2"></div>
             <div className="price items">
                 <p>Items (3):</p>
-                <p>$49.31</p>
+                <p>${convertFromPriceCents(orderSummary.totalPrice)}</p>
             </div>
 
-            <button>Place your order</button>
+            <NavLink to="/return_orders">
+                <button>Place your order</button>
+            </NavLink>
         </section>
     )
 }

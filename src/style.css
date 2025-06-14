@@ -494,13 +494,14 @@ a{
     color: rgb(168, 14, 14);
     font-weight: bold;
 }
-.orderSummary-container > button{
+.orderSummary-container > a > button{
     background-color: rgb(254,217,20);
     border: none;
     border-radius: 8px;
     height: 40px;
     margin-top: 30px;
     cursor: pointer;
+    width: 100%;
 }
 
 @media(max-width: 1030px){

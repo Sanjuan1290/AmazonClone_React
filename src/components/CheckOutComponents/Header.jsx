@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import lockIcon from '../../assets/icons/checkout-lock-icon.png'
 import { NavLink } from 'react-router-dom'
+import { getTotalQuantity } from '../../cart'
 
 export default function Header(){
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 620)
@@ -25,7 +26,7 @@ export default function Header(){
             </NavLink>
 
             <div>
-                <p>Checkout (<span> 0 items </span>)</p>
+                <p>Checkout (<span> {getTotalQuantity()} items </span>)</p>
             </div>
 
             <img className='lockIcon' src={lockIcon} alt="lock icon" />

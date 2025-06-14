@@ -321,13 +321,19 @@ a{
 }
 
 .checkOutHeader{
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
     padding: 10px 0px;
     width: 100%;
     max-width: 1100px;
     margin: 0px auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
 }
 .checkOutHeader > a > img:nth-of-type(1).window{
     width: 100px;
@@ -493,7 +499,6 @@ a{
         align-items: center;
         padding: 40px;
         margin: 10px auto;
-        background-color: antiquewhite;
     }
     .orderSummary-container{
         order: -1;
@@ -504,12 +509,10 @@ a{
 
     .review-order-container{
         width: 100%;
-        background-color: aquamarine;
         min-width: 440px;
         max-width: 540px;
     }
     .order-container{
-        background-color: rgb(195, 127, 39);
         width: calc(100% - 30px);
     }
     .order-container .orderDetails-deliveryOptions{

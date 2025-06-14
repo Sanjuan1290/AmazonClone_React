@@ -13,6 +13,7 @@ export function loader(){
 export default function CheckOutLayout(){
 
     const [headerQuantity, setHeaderQuantity] = useState(getTotalQuantity())
+    
     const { products } = useLoaderData()
 
     return(

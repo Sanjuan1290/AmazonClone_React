@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { convertFromPriceCents } from '../../utils'
-import { updateItemQuantity, getTotalQuantity } from '../../cart'
+import { updateItemQuantity, getTotalQuantity, removeItem } from '../../cart'
 
 export default function YourOrder({ item, setHeaderQuantity }){
     
@@ -11,15 +11,16 @@ export default function YourOrder({ item, setHeaderQuantity }){
         setIsUpdateClicked(true)
     }
 
-    function handleSaveQuantity(productId){
+    function handleSaveQuantity(){
         setIsUpdateClicked(false)
 
-        updateItemQuantity(productId, Number(quantityRef.current.value))
+        updateItemQuantity(item.id, Number(quantityRef.current.value))
         setHeaderQuantity(getTotalQuantity()) // this is in checkOutLayout and this rerender all under it
     }
 
     function handleDeleteItem(){
-
+        removeItem(item.id)
+        setHeaderQuantity(getTotalQuantity()) // this is in checkOutLayout and this rerender all under it - its just i don't wanna make cart jsx then pass it on App then base on cart the rerender :)
     }
 
     return(
@@ -41,7 +42,7 @@ export default function YourOrder({ item, setHeaderQuantity }){
                             </p>
                             {
                                 isUpdateClicked ? 
-                                <button onClick={()=> {handleSaveQuantity(item.id)}}>Save</button> 
+                                <button onClick={handleSaveQuantity}>Save</button> 
                                 :
                                 <button onClick={handleUpdateQuantity}>Update</button>
                             }

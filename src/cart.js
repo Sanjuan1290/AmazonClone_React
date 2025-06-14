@@ -33,6 +33,7 @@ export function updateItemQuantity(productId, newQuantity){
     saveCart()
 }
 
-export function removeItem(){
-
+export function removeItem(productId){
+    cart = cart.filter(item => item.productId !== productId)
+    saveCart()
 }

@@ -303,6 +303,9 @@ a{
 
 
 /* checkOut  */
+.loadingItems{
+    margin: 100px 0px 0px 50px;
+}
 .checkout-orderReview-container{
     display: flex;
     padding: 20px;
@@ -379,6 +382,7 @@ a{
 .order-container .orderDetails-deliveryOptions{
     display: flex;
     gap: 15px;
+    justify-content: space-between;
 }
 
 .orderDetails{
@@ -420,6 +424,7 @@ a{
     gap: 15px;
     min-width: fit-content;
     margin-bottom: 20px;
+    padding-right: 10px;
 }
 .deliveryOptions > div {
     display: flex;

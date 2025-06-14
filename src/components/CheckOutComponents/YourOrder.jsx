@@ -1,4 +1,6 @@
-export default function YourOrder(){
+import { convertFromPriceCents } from '../../utils'
+
+export default function YourOrder({ item }){
 
     return(
         <section className="order-container">
@@ -9,12 +11,12 @@ export default function YourOrder(){
 
             <div className="orderDetails-deliveryOptions">
                 <div className="orderDetails">
-                    <img src="/images/products/athletic-cotton-socks-6-pairs.jpg" alt="dsfds" />
+                    <img src={item.image} alt="dsfds" />
                     <div>
-                        <strong className="name">Black and Gray Athletic Cotton Socks - 6 Pairs</strong>
-                        <strong className="price">$10.90</strong>
+                        <strong className="name">{item.name}</strong>
+                        <strong className="price">${convertFromPriceCents(item.priceCents * item.quantity)}</strong>
                         <div className="quantity">
-                            <p>Quantity: 1</p>
+                            <p>Quantity: {item.quantity}</p>
                             <button>Update</button>
                             <button>Delete</button>
                         </div>
@@ -25,7 +27,7 @@ export default function YourOrder(){
 
                     <div>
                         <label>
-                            <input type="radio" />
+                            <input type="radio" name={`deliveryOption-${item.id}`} value={0} defaultChecked/>
                             <div>
                                 <p>Monday, June 23</p>
                                 <span>FREE Shipping</span>
@@ -33,7 +35,7 @@ export default function YourOrder(){
                         </label>
 
                         <label>
-                            <input type="radio" />
+                            <input type="radio" name={`deliveryOption-${item.id}`} value={4.99}/>
                             <div>
                                 <p>Friday, June 20</p>
                                 <span>$4.99 - Shipping</span>
@@ -41,7 +43,7 @@ export default function YourOrder(){
                         </label>
 
                         <label>
-                            <input type="radio" />
+                            <input type="radio" name={`deliveryOption-${item.id}`} value={9.99}/>
                             <div>
                                 <p>Monday, June 16</p>
                                 <span>$9.99 - Shipping</span>

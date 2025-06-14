@@ -5,7 +5,7 @@ import { RouterProvider,
 
 import HomeLayout from './pages/HomeLayout'
 import Products, {loader as productsLoader} from './components/HomeComponents/Products'
-import CheckOutLayout from './pages/CheckOutLayout'
+import CheckOutLayout, { loader as checkOutLayoutLoader} from './pages/CheckOutLayout'
 
 
 export default function App(){
@@ -16,7 +16,7 @@ export default function App(){
                     <Route index element={<Products />} loader={productsLoader}/>
                 </Route>
 
-                <Route path="/checkout" element={<CheckOutLayout />}/>
+                <Route path="/checkout" element={<CheckOutLayout />} loader={checkOutLayoutLoader} />
             </>
     ))
 

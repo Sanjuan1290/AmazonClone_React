@@ -1,7 +1,6 @@
 
 export let cart = JSON.parse(localStorage.getItem('cart')) || []
 
-
 export function addToCart(productId, quantity){
     const existingProduct = cart.find(item => item.productId === productId)
 

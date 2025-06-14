@@ -23,3 +23,16 @@ export function getTotalQuantity(){
 export function saveCart(){
     localStorage.setItem('cart', JSON.stringify(cart))
 }
+
+export function updateItemQuantity(productId, newQuantity){
+    
+    cart = cart.map(item => (
+        item.productId === productId ? {...item, quantity: newQuantity} : item
+    ))
+
+    saveCart()
+}
+
+export function removeItem(){
+
+}

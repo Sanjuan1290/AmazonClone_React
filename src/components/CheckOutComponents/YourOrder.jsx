@@ -1,6 +1,26 @@
+import { useRef, useState } from 'react'
 import { convertFromPriceCents } from '../../utils'
+import { updateItemQuantity, getTotalQuantity } from '../../cart'
 
-export default function YourOrder({ item }){
+export default function YourOrder({ item, setHeaderQuantity }){
+    
+    const [isUpdateClicked, setIsUpdateClicked] = useState(false)
+    const quantityRef = useRef()
+
+    function handleUpdateQuantity(){
+        setIsUpdateClicked(true)
+    }
+
+    function handleSaveQuantity(productId){
+        setIsUpdateClicked(false)
+
+        updateItemQuantity(productId, Number(quantityRef.current.value))
+        setHeaderQuantity(getTotalQuantity()) // this is in checkOutLayout and this rerender all under it
+    }
+
+    function handleDeleteItem(){
+
+    }
 
     return(
         <section className="order-container">
@@ -16,9 +36,16 @@ export default function YourOrder({ item }){
                         <strong className="name">{item.name}</strong>
                         <strong className="price">${convertFromPriceCents(item.priceCents * item.quantity)}</strong>
                         <div className="quantity">
-                            <p>Quantity: {item.quantity}</p>
-                            <button>Update</button>
-                            <button>Delete</button>
+                            <p>
+                                Quantity: {isUpdateClicked ? <input type='number' ref={quantityRef} defaultValue={item.quantity}/> : item.quantity}
+                            </p>
+                            {
+                                isUpdateClicked ? 
+                                <button onClick={()=> {handleSaveQuantity(item.id)}}>Save</button> 
+                                :
+                                <button onClick={handleUpdateQuantity}>Update</button>
+                            }
+                            <button onClick={handleDeleteItem}>Delete</button>
                         </div>
                     </div>
                 </div>

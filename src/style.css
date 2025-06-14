@@ -408,6 +408,14 @@ a{
     gap: 5px;
     width: 200px;
 }
+.orderDetails > div > .quantity > p{
+    display: flex;
+}
+.orderDetails > div > .quantity > p > input{
+    width: 35px;
+    padding: 2px 2px 2px 5px;
+    margin-left: 5px;
+}
 .orderDetails > div > .quantity > button{
     background-color: transparent;
     border: none;

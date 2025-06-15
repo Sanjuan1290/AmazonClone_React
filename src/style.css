@@ -319,10 +319,12 @@ a{
 .review-order-container{
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 20px;
 }
-
+.review-order-container h2{
+    order: 1;
+}
 .checkOutHeader{
     position: fixed;
     display: flex;
@@ -538,10 +540,13 @@ a{
 .yourOrders-container{
     margin: 100px auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     max-width: 800px;
     padding: 0px 20px;
     gap: 20px;
+}
+.yourOrders-container > h1{
+    order: 1;
 }
 .yourOrders-container > .orderList-container{
     display: flex;

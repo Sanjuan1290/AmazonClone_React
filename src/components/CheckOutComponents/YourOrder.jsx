@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { convertFromPriceCents, getDeliveryDate } from '../../utils'
+import { convertFromPriceCents, setDeliveryDate } from '../../utils'
 import { updateItemQuantity, getTotalQuantity, removeItem, updateDeliveryOption } from '../../cart'
 
 export default function YourOrder({ item, setHeaderQuantity, setRender }){
@@ -21,16 +21,14 @@ export default function YourOrder({ item, setHeaderQuantity, setRender }){
     function handleDeleteItem(){
         removeItem(item.id)
         setHeaderQuantity(getTotalQuantity()) // this is in checkOutLayout and this rerender all under it - its just i don't wanna make cart jsx then pass it on App then base on cart the rerender :)
+
     }
-
-
-    
 
     return(
         <section className="order-container">
 
             <div className="delivery-date">
-                <strong>Delivery date: {getDeliveryDate(item.deliveryOption)}</strong>
+                <strong>Delivery date: {setDeliveryDate(item.deliveryOption)}</strong>
             </div>
 
             <div className="orderDetails-deliveryOptions">
@@ -67,7 +65,7 @@ export default function YourOrder({ item, setHeaderQuantity, setRender }){
                                 value={0} 
                                 checked={item.deliveryOption === '1' ? true : false}/>
                             <div>
-                                <p>{getDeliveryDate('1')}</p>
+                                <p>{setDeliveryDate('1')}</p>
                                 <span>FREE Shipping</span>
                             </div>
                         </label>
@@ -82,7 +80,7 @@ export default function YourOrder({ item, setHeaderQuantity, setRender }){
                                 value={4.99} 
                                 checked={item.deliveryOption === '2' ? true : false}/>
                             <div>
-                                <p>{getDeliveryDate('2')}</p>
+                                <p>{setDeliveryDate('2')}</p>
                                 <span>$4.99 - Shipping</span>
                             </div>
                         </label>
@@ -97,7 +95,7 @@ export default function YourOrder({ item, setHeaderQuantity, setRender }){
                                 value={9.99} 
                                 checked={item.deliveryOption === '3' ? true : false}/>
                             <div>
-                                <p>{getDeliveryDate('3')}</p>
+                                <p>{setDeliveryDate('3')}</p>
                                 <span>$9.99 - Shipping</span>
                             </div>
                         </label>

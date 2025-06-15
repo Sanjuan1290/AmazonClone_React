@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { getOrderSummary, placeOrder} from "../../cart"
-import { convertFromPriceCents } from "../../utils"
+import { convertFromPriceCents, getOrderDate } from "../../utils"
 
 export default function OrderSummary({cartItem}){
 
@@ -37,7 +37,7 @@ export default function OrderSummary({cartItem}){
             </div>
 
             <NavLink to="/return_orders">
-                <button onClick={()=>{placeOrder(cartItem)}}>Place your order</button>
+                <button onClick={()=>{placeOrder(cartItem, getOrderDate)}}>Place your order</button>
             </NavLink>
         </section>
     )

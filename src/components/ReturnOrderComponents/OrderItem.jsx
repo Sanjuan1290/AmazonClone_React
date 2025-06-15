@@ -1,15 +1,17 @@
 import buyAgainIcon from '../../assets/icons/buy-again.png'
+import { orderedCartId_Date } from '../../cart'
 
-export default function OrderItem(){
-
+export default function OrderItem({ item }){
+    
     return(
         <section className="item-container">
-            <img src="/images/products/6-piece-non-stick-baking-set.webp" alt="Item Image" />
+            <img src={item.image} alt="Item Image" />
 
             <div className='info-container'>
-                <strong>6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set</strong>
-                <p>Arriving on: Monday, June 16</p>
-                <p>Quantitiy: 1</p>
+                <strong>{item.name}</strong>
+                <p>Arriving on: {item.arrivingDate}</p>
+
+                <p>Quantitiy: {item.quantity}</p>
                 <button>
                     <img src={buyAgainIcon} alt="buy again icon" />
                     <p>Buy it again</p>

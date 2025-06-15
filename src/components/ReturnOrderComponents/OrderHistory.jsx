@@ -1,22 +1,22 @@
 import OrderItem from './OrderItem'
-import { convertFromPriceCents } from '../../utils';
-import { orderedCartId, getOrderSummary } from '../../cart'
+import { convertFromPriceCents } from '../../utils'
+import { orderedCartId_Date, getOrderSummary } from '../../cart'
 
-export default function OrderHistory({ cartItem, index }){
-
-    console.log(cartItem);
-    console.log(orderedCartId);
-
+export default function OrderHistory({ cartItem, index }) {
     const totalPrice = convertFromPriceCents(getOrderSummary(cartItem).totalPrice)
-    console.log(totalPrice);
 
-    return(
+    const orderedDate = orderedCartId_Date[index]?.orderedDate
+    const formattedDate = orderedDate
+        ? `${orderedDate.dayString}, ${orderedDate.monthString} ${orderedDate.date}`
+        : 'Unknown'
+
+    const orderId = orderedCartId_Date[index]?.generateKey || 'Unknown'
+    return (
         <section className="orderList-container">
-
             <section className="top-section">
                 <div className="orderPlace">
                     <p>Order Placed:</p>
-                    <p>Thursday, June 12</p>
+                    <p>{formattedDate}</p>
                 </div>
 
                 <div className="total">
@@ -26,12 +26,14 @@ export default function OrderHistory({ cartItem, index }){
 
                 <div className="orderId">
                     <p>Order ID:</p>
-                    <p>{orderedCartId[index]}</p>
+                    <p>{orderId}</p>
                 </div>
             </section>
 
             <section className="all-items-container">
-                <OrderItem />
+                {cartItem.map((item, index) => (
+                    <OrderItem item={item} index={index} key={item.id} />
+                ))}
             </section>
         </section>
     )

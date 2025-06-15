@@ -8,7 +8,6 @@ import Products, {loader as productsLoader} from './components/HomeComponents/Pr
 import CheckOutLayout, { loader as checkOutLayoutLoader} from './pages/CheckOutLayout'
 import ReturnOrderLayout from './pages/ReturnOrderLayout'
 
-
 export default function App(){
 
     const router = createBrowserRouter(createRoutesFromElements(

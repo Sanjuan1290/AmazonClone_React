@@ -24,7 +24,7 @@ a{
     height: 40px;
     z-index: 999;
 }
-.amazonHeader a .amazon-logo{
+.amazonHeader > a > .amazon-logo{
     border: 1px solid transparent;
     padding: 5px 8px;
     cursor: pointer;
@@ -33,17 +33,17 @@ a{
     display: flex;
     align-items: center;
 }
-.amazonHeader a .amazon-logo .windowLogo{
+.amazonHeader >  a >  .amazon-logo >  .windowLogo{
     width: 85px;
 }
-.amazonHeader a .amazon-logo .phoneLogo{
+.amazonHeader >  a >  .amazon-logo >  .phoneLogo{
     width: 30px;
 }
-.amazonHeader a .amazon-logo:hover{
+.amazonHeader >  a >  .amazon-logo:hover{
     border: 1px solid white;
 }
 
-.amazonHeader .search-input{
+.amazonHeader >  .search-input{
     flex: 1;
     display: flex;
     align-items: center;
@@ -55,7 +55,7 @@ a{
 .amazonHeader .search-input:focus-within img{
     outline: 2px solid rgb(252, 178, 82);
 }
-.amazonHeader .search-input input{
+.amazonHeader >  .search-input >  input{
     padding: 12px;
     width: 100%;
     max-width: 800px;
@@ -63,19 +63,19 @@ a{
     border: none;
     border-radius: 5px;
 }
-.amazonHeader .search-input img{
+.amazonHeader > .search-input >  img{
     width: 20px;
     background-color: rgb(254,189,105);
     border-radius: 0px 5px 5px 0px;
     padding: 10px;
     margin-left: -5px;
 }
-.amazonHeader .burgerMenu{
+.amazonHeader > .burgerMenu{
     margin-left: 20px;
     cursor: pointer;
     padding: 5px;
 }
-.amazonHeader .return_orders-cart{
+.amazonHeader > .return_orders-cart{
     display: flex;
     justify-content: end;
     align-items: center;
@@ -84,7 +84,7 @@ a{
     min-width: 200px;
     height: 100%;
 }
-.amazonHeader .return_orders-cart .return-orders-container .return-orders{
+.amazonHeader > .return_orders-cart > .return-orders-container > .return-orders{
     display: flex;   
     flex-direction: column;
     justify-content: center;
@@ -93,31 +93,31 @@ a{
     height: 90%;
     padding: 5px 8px;
 }
-.amazonHeader .return_orders-cart .return-orders-container .return-orders span{
+.amazonHeader > .return_orders-cart > .return-orders-container > .return-orders span{
     font-weight: bold;
 }
-.amazonHeader .return_orders-cart .cart-container .cart{
+.amazonHeader > .return_orders-cart > .cart-container > .cart{
     display: flex;
     align-items: end;
     border: 1px solid transparent;
     height: 90%;
     padding: 5px 8px;
 }
-.amazonHeader .return_orders-cart .return-orders-container .return-orders:hover{
+.amazonHeader > .return_orders-cart > .return-orders-container > .return-orders:hover{
     cursor: pointer;
     border: 1px solid white;
 }
-.amazonHeader .return_orders-cart .cart-container .cart:hover{
+.amazonHeader > .return_orders-cart > .cart-container > .cart:hover{
     cursor: pointer;
     border: 1px solid white;
 }
-.amazonHeader .return_orders-cart .cart-container .cart div{
+.amazonHeader > .return_orders-cart > .cart-container > .cart > div{
     position: relative;
 }
-.amazonHeader .return_orders-cart .cart-container .cart div img{
+.amazonHeader > .return_orders-cart > .cart-container > .cart > div > img{
     width: 50px;
 }
-.amazonHeader .return_orders-cart .cart-container .cart div span{
+.amazonHeader > .return_orders-cart > .cart-container > .cart > div > span{
     position: absolute;
     left: 57%;
     top: 3%;
@@ -145,10 +145,10 @@ a{
     bottom: -100px;
     opacity: 1;
 }
-.menuItems a{
+.menuItems > a{
     text-align: center;
 }
-.menuItems a button{
+.menuItems > a > button{
     background-color: transparent;
     color: white;
     height: 40px;
@@ -157,18 +157,18 @@ a{
     font-size: 14px;
     font-weight: bold;
 }
-.menuItems a:hover{
+.menuItems > a:hover{
     background-color: rgba(255, 255, 255, 0.049);
 }
-.menuItems a:nth-of-type(2) button span{
+.menuItems > a:nth-of-type(2) > button > span{
     color: rgb(255,133,24);
 }
 
 @media(max-width: 780px){
-    .amazonHeader a .amazon-logo{
+    .amazonHeader > a > .amazon-logo{
         margin-right: 10px;
     }
-    .amazonHeader .return_orders-cart{
+    .amazonHeader > .return_orders-cart{
         min-width: fit-content;
         padding-left: 20px;
     }
@@ -192,22 +192,22 @@ a{
     padding: 40px 15px;
     gap: 15px;
 }
-.product .image{
+.product > .image{
     width: 70%;
     height: 200px;
 }
-.product .image img{
+.product > .image > img{
     object-fit: contain;
     width: 100%;
     height: 100%;
 }
-.product .details{
+.product > .details{
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 10px;
 }
-.product .details .productName {
+.product > .details > .productName {
     display: -webkit-box;
     -webkit-line-clamp: 2; /* max number of lines */
     -webkit-box-orient: vertical;
@@ -224,24 +224,24 @@ a{
     left: 10%;
     color: rgb(49, 136, 85);
 }
-.addEffect img{
+.addEffect > img{
     width: 20px;
 }
 
-.product .details div{
+.product > .details > div{
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.product .details div img{
+.product > .details > div > img{
     width: 100px;
 }
-.product .details div p{
+.product > .details > div > p{
     color: rgb(30,156,202);
     font-weight: 500;
     margin-top: 2px;
 }
-.product .details select{
+.product > .details > select{
     border: 1px solid rgba(128, 128, 128, 0.298);
     font-size: 15px;
     box-shadow: 0px 1px 10px rgba(128, 128, 128, 0.254);
@@ -249,7 +249,7 @@ a{
     padding: 3px;
     border-radius: 3px;
 }
-.product .addToCart{
+.product > .addToCart{
     background-color: rgb(255,217,21);
     border-radius: 20px;
     height: 33px;
@@ -350,16 +350,16 @@ a{
     margin-right: 20px;
 }
 
-.checkOutHeader div{ 
+.checkOutHeader > div{ 
     text-align: center;
     flex: 1;
     font-size: 24px;
     font-weight: 500;
 }
-.checkOutHeader div p span {
+.checkOutHeader > div > p > span {
     color: rgb(1,112,133);
 }
-.checkOutHeader img:nth-of-type(2){
+.checkOutHeader > img:nth-of-type(2){
 
     margin-right: 20px;
 }
@@ -374,12 +374,12 @@ a{
     min-width: fit-content;
     max-width: 670px;
 }
-.order-container .delivery-date{
+.order-container > .delivery-date{
     color: rgb(0,119,40) ;  
     font-size: 18px; 
 }
 
-.order-container .orderDetails-deliveryOptions{
+.order-container > .orderDetails-deliveryOptions{
     display: flex;
     gap: 15px;
     justify-content: space-between;
@@ -468,7 +468,7 @@ a{
     height: fit-content;
 }
 
-.orderSummary-container .line-1{
+.orderSummary-container > .line-1{
     height: .5px;
     width: 60px;
     background-color: rgba(128, 128, 128, 0.665);
@@ -477,12 +477,12 @@ a{
     top: 34%;
     transform: translateY(50%);
 }
-.orderSummary-container .line-2{
+.orderSummary-container > .line-2{
     height: .5px;
     background-color: rgba(128, 128, 128, 0.665);
     margin: 5px 0px 10px 0px;
 }
-.orderSummary-container .price{
+.orderSummary-container > .price{
     display: flex;
     justify-content: space-between;
     font-size: 15px;
@@ -531,5 +531,104 @@ a{
     }
     .order-container .orderDetails-deliveryOptions{
         flex-direction: column;
+    }
+}
+
+
+.yourOrders-container{
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 0px 20px;
+    gap: 20px;
+}
+.yourOrders-container > .orderList-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
+    max-width: 100%;
+    padding-bottom: 20px;
+} 
+.yourOrders-container > .orderList-container > .top-section{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 15px;    
+}
+.yourOrders-container > .orderList-container > .all-items-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.all-items-container > .item-container{
+    position: relative;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.all-items-container > .item-container > img{
+    width: 100px;
+}
+.all-items-container > .item-container > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1 ;
+}
+.all-items-container > .item-container > .info-container > button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(254,217,20);
+    font-size: 15px;
+    cursor: pointer;
+}
+.all-items-container > .item-container > .info-container > button > img{
+    width: 30px;
+}
+.all-items-container > .item-container > .trackPackage{
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+}
+.all-items-container > .item-container > .trackPackage > button{
+    height: 35px;
+    cursor: pointer;
+    min-width: 200px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.523);
+    border-radius: 5px;
+}
+
+@media (max-width: 740px) {
+    .yourOrders-container > .orderList-container > .top-section{
+        flex-direction: column;
+    }
+    .yourOrders-container > .orderList-container > .top-section > div{
+        display: flex;
+        gap: 10px;
+    }
+    .all-items-container > .item-container{
+        padding-bottom: 45px;
+    }
+    .all-items-container > .item-container > .trackPackage{
+        min-width: 100%;
+        align-items: start;
+        position: absolute;
+        bottom: 0;
+        left: 145px;
+    }
+    .all-items-container > .item-container > .trackPackage > button{
+        min-width: 135px;
     }
 }

@@ -1,5 +1,7 @@
 
 export let cart = JSON.parse(localStorage.getItem('cart')) || []
+export let orderedCart = JSON.parse(localStorage.getItem('orderedCart')) || []
+export let orderedCartId = JSON.parse(localStorage.getItem('orderedCartId')) || []
 
 export function addToCart(productId, quantity){
     const existingProduct = cart.find(item => item.productId === productId)
@@ -67,4 +69,16 @@ export function getOrderSummary(cartItem){
         totalPriceBeforeTax, 
         taxPrice, 
         totalPrice}
+}
+
+export function placeOrder(cartItem) {
+    const generateKey = crypto.randomUUID()
+    orderedCart.push(cartItem)
+    orderedCartId.push(generateKey)
+
+    localStorage.setItem('orderedCart', JSON.stringify(orderedCart))
+    localStorage.setItem('orderedCartId', JSON.stringify(orderedCartId))
+
+    cart = []
+    saveCart()
 }

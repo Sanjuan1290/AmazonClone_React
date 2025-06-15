@@ -7,10 +7,12 @@ import { getTotalQuantity } from '../cart'
 export default function HomeLayout(){
     const [cartQuantity, setCartQuantity] = useState(getTotalQuantity())
 
+    const [search, setSearch] = useState('')
+
     return(
         <>
-            <Header cartQuantity={cartQuantity}/>
-            <Outlet context={setCartQuantity}/>
+            <Header cartQuantity={cartQuantity} setSearch={setSearch}/>
+            <Outlet context={{setCartQuantity, search}}/>
         </>
     )
 }

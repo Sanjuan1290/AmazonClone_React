@@ -8,6 +8,7 @@ export default function Header(props){
     const [isMobileWidthSize, setIsMobileWidthSize] = useState(window.innerWidth <= 620)
     const [showMenu, setShowMenu] = useState(false)
     const menuRef = useRef()
+    const searchRef = useRef()
 
     useEffect(()=>{
         const handleSize = ()=>{
@@ -37,6 +38,10 @@ export default function Header(props){
         setShowMenu(prev => !prev)
     }
 
+    function handleSearch(){
+        console.log(searchRef.current.value);
+        props.setSearch(searchRef.current.value.toLowerCase())
+    }
     return(
         <header className='amazonHeader'>
             <NavLink to="/">
@@ -51,8 +56,11 @@ export default function Header(props){
             </NavLink>
 
             <div className="search-input">
-                <input type="text" placeholder="Search" />
-                <img src={searchIcon} alt="search icon" />
+                <input ref={searchRef} onKeyDown={(e)=>{
+                    if(e.key === 'Enter')
+                        props.setSearch(e.target.value.toLowerCase())
+                }} type="text" placeholder="Search" />
+                <img onClick={handleSearch} src={searchIcon} alt="search icon" />
             </div>
 
             {

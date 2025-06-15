@@ -1,7 +1,8 @@
+import { NavLink } from 'react-router-dom'
 import buyAgainIcon from '../../assets/icons/buy-again.png'
-import { orderedCartId_Date } from '../../cart'
+import { addToCart, getTotalQuantity } from '../../cart'
 
-export default function OrderItem({ item }){
+export default function OrderItem({ item, setCartQuantity, orderId }){
     
     return(
         <section className="item-container">
@@ -12,14 +13,19 @@ export default function OrderItem({ item }){
                 <p>Arriving on: {item.arrivingDate}</p>
 
                 <p>Quantitiy: {item.quantity}</p>
-                <button>
+                <button onClick={()=> {
+                        addToCart(item.id, 1)
+                        setCartQuantity(getTotalQuantity())
+                    }}>
                     <img src={buyAgainIcon} alt="buy again icon" />
                     <p>Buy it again</p>
                 </button>
             </div>
 
             <div className="trackPackage">
-                <button>Track package</button>
+                <NavLink to={`/trackpackage?productId=${item.id}&orderId=${orderId}`}>
+                    <button>Track package</button>
+                </NavLink>
             </div>
         </section>
     )
